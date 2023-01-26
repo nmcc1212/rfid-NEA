@@ -5,7 +5,6 @@ mydb = mysql.connector.connect(
   host="localhost",
   user="rfid",
   password="ad"
-  data
 )
 
 print(mydb)
