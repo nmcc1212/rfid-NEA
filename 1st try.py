@@ -29,7 +29,11 @@ def get_current_value(mydb, card):
     val = (card,)
     mycursor.execute(sql, val)
     result = mycursor.fetchone()
-    return result[0]
+    if result:
+        return result[0]
+    else:
+        return None
+
 
 # Flip binary value
 def flip_value(value):
