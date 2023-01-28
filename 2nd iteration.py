@@ -60,14 +60,21 @@ def update_database(mydb, card, new_value, time_stamp):
     mycursor.execute(sql, val)
     mydb.commit()
 
+def add_new_card(mydb, card):
+    mycursor = mydb.cursor()
+    sql = "INSERT INTO card_states (card_id, binary_value, timestamp) VALUES (%s, %s, %s)"
+    val = (card, 0, get_time_stamp())
+    mycursor.execute(sql, val)
+    mydb.commit()
+
+
 # Main function
 def main():
     mydb = connect_to_database()
     card = read_card_id()
     current_value = get_current_value(mydb, card)
     if current_value is None:
-            print("Card ID not found in database")
-            exit()
+        add_new_card(mydb, card)
     new_value = flip_value(current_value)
     time_stamp = get_time_stamp()
     update_database(mydb, card, new_value, time_stamp)
