@@ -15,9 +15,7 @@ def connect_to_database():
 
 # Set up RFID reader and read card ID
 def read_card_id():
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(7, GPIO.IN)
-
+    reader = SimpleMFRC522()
     card = ""
     while True:
         card, text = reader.read()
