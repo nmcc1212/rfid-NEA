@@ -2,6 +2,9 @@ import mysql.connector
 import RPi.GPIO as GPIO
 from datetime import datetime
 from mfrc522 import SimpleMFRC522
+import atexit
+
+atexit.register(GPIO.cleanup)
 
 # Connect to MySQL database
 def connect_to_database():
