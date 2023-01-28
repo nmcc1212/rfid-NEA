@@ -1,6 +1,7 @@
 import mysql.connector
 import RPi.GPIO as GPIO
 from datetime import datetime
+from mfrc522 import SimpleMFRC522
 
 # Connect to MySQL database
 def connect_to_database():
@@ -19,9 +20,8 @@ def read_card_id():
 
     card = ""
     while True:
-        if GPIO.input(7) == 1:
-            card = input("Scan RFID card: ")
-            break
+        card, text = reader.read()
+        break
     return card
 
 # Retrieve current binary value from database
