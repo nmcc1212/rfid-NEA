@@ -66,8 +66,8 @@ def main():
     card = read_card_id()
     current_value = get_current_value(mydb, card)
     if current_value is None:
-        print("Card ID not found in database")
-        exit()
+            print("Card ID not found in database")
+            exit()
     new_value = flip_value(current_value)
     time_stamp = get_time_stamp()
     update_database(mydb, card, new_value, time_stamp)
