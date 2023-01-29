@@ -33,5 +33,5 @@ def index():
     cards = get_all_cards()
     return render_template('index.html', cards=cards)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
+app.run(debug=True, host='0.0.0.0')
