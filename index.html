@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RFID Cards</title>
+</head>
+<body>
+    <h1>RFID Cards</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Card ID</th>
+                <th>Binary Value</th>
+                <th>Timestamp</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for card in cards %}
+                <tr>
+                    <td>{{ card.card_id }}</td>
+                    <td>{{ card.binary_value }}</td>
+                    <td>{{ card.timestamp }}</td>
+                    <td>{{ card.name }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
