@@ -9,3 +9,6 @@ CREATE TABLE card_states (
 
 
 /* Iteration 2*/
+
+ALTER TABLE card_states
+ADD COLUMN name VARCHAR(255);
