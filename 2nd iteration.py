@@ -28,7 +28,7 @@ def read_card_id():
 # Retrieve current binary value from database
 def get_current_value(mydb, card):
     mycursor = mydb.cursor()
-    sql = "SELECT binary_value FROM card_states WHERE card_id = %s"
+    sql = "SELECT binary_value, name FROM card_states WHERE card_id = %s"
     val = (card,)
     mycursor.execute(sql, val)
     result = mycursor.fetchone()
