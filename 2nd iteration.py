@@ -63,7 +63,7 @@ def update_database(mydb, card, new_value, time_stamp):
 def add_new_card(mydb, card):
     mycursor = mydb.cursor()
     name = input("Enter name: ")
-    sql = "INSERT INTO card_states (card_id, binary_value, timestamp) VALUES (%s, %s, %s, %s)"
+    sql = "INSERT INTO card_states (card_id, binary_value, timestamp, name) VALUES (%s, %s, %s, %s)"
     val = (card, 0, get_time_stamp(), name)
     mycursor.execute(sql, val)
     mydb.commit()
