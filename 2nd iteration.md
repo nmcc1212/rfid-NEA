@@ -37,7 +37,7 @@ The GPIO pins showed as still in use after closing and relaunching the
 program fixed by adding the "atexit" library which runs a predefined
 script (GPIO.cleanup) when the program exits
 
-\--
+--
 
 ![img](./imgs/iteration2/media/image5.png)
 
@@ -57,13 +57,19 @@ Imgs of 1st iteration (adding users manually )
 
 ![A screenshot of a computer Description automatically generated with
 low
-confidence](./imgs/iteration2/media/image7.png)The card has just been added
+confidence](./imgs/iteration2/media/image7.png)
+
+The card has just been added
 
 ![img](./imgs/iteration2/media/image8.png)
+
+
 
 The card has been tapped![Text Description automatically generated with
 medium
 confidence](./imgs/iteration2/media/image9.png)
+
+
 
 This is now reflected in the database![img](./imgs/iteration2/media/image10.png)
 
