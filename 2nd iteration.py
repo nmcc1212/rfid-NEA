@@ -37,17 +37,6 @@ def get_current_value(mydb, card):
     else:
         return None
 
-def get_name(mydb, card):
-    mycursor = mydb.cursor()
-    sql = "SELECT name FROM card_states WHERE card_id = %s"
-    val = (card,)
-    mycursor.execute(sql, val)
-    result = mycursor.fetchone()
-    if result:
-        return result[0]
-    else:
-        return None
-
 
 # Flip binary value
 def flip_value(value):
@@ -71,31 +60,20 @@ def update_database(mydb, card, new_value, time_stamp):
     mycursor.execute(sql, val)
     mydb.commit()
 
-def add_new_card(mydb, card):
-    mycursor = mydb.cursor()
-    name = input("Enter name: ")
-    sql = "INSERT INTO card_states (card_id, binary_value, timestamp, name) VALUES (%s, %s, %s, %s)"
-    val = (card, 0, get_time_stamp(), name)
-    mycursor.execute(sql, val)
-    mydb.commit()
-    return name
-
 # Main function
 def main():
     mydb = connect_to_database()
     card = read_card_id()
     current_value = get_current_value(mydb, card)
     if current_value is None:
-        name = add_new_card(mydb, card)
-    else:
-        name = get_name(mydb, card)
+            print("Card ID not found in database")
+            exit()
     new_value = flip_value(current_value)
     time_stamp = get_time_stamp()
     update_database(mydb, card, new_value, time_stamp)
     print("Card ID:", card)
     print("Binary value updated to:", new_value)
     print("Time Stamp:", time_stamp)
-    print("Name:", name)
 
 
 main()
