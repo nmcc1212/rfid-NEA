@@ -53,6 +53,8 @@ Now adding the RFID card to the DB manually,
 
 `INSERT INTO rfid2.card_states (card_id, binary_value, timestamp) VALUES (770381256117, 0, \"2023-01-01 00:00:00\");`
 
+\--
+
 Imgs of 1st iteration (adding users manually )
 
 ![A screenshot of a computer Description automatically generated with
@@ -63,9 +65,9 @@ The card has just been added
 
 ![img](./imgs/iteration2/media/image8.png)
 
+The card has been tapped
 
-
-The card has been tapped![Text Description automatically generated with
+![Text Description automatically generated with
 medium
 confidence](./imgs/iteration2/media/image9.png)
 
