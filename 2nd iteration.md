@@ -1,22 +1,24 @@
+## Change card reading method
+
 ![](./imgs/iteration2/media/image1.png)
 
 Using
 
-([https://github.com/nmcc1212/rfid2/blob/d627b2f2af4d4ee86963e30932556b7870d28e62/1st%20try.py](https://github.com/nmcc1212/rfid2/blob/d627b2f2af4d4ee86963e30932556b7870d28e62/1st%20try.py))
-for reading cards didn't work, now using SimpleMFRC522
+([this method](https://github.com/nmcc1212/rfid2/blob/d627b2f2af4d4ee86963e30932556b7870d28e62/1st%20try.py))
+for reading cards didn't work, after researching other methods, I am now using SimpleMFRC522
 
 \-\--
+## Reader object
+![](./imgs/iteration2/media/image2.png)
 
+A reader object was missing, this i
+
+\-\--
+## Create SQL table
 Then created the SQL table using the code in [sqlcode.sql](<sqlcode.sql>)
 
 \-\--
-
-![](./imgs/iteration2/media/image2.png)
-
-A reader object was missing
-
-\-\--
-
+## Error Handling if RFID UID is not in database
 ![](./imgs/iteration2/media/image3.png)
 
 Didn't handle error if the RFID UID was not in the database, fix
@@ -30,7 +32,7 @@ else:
 
 
 \-\--
-
+## GPIO clean up at exit
 ![](./imgs/iteration2/media/image4.png)
 
 The GPIO pins showed as still in use after closing and relaunching the
@@ -38,23 +40,22 @@ program fixed by adding the "atexit" library which runs a predefined
 script (GPIO.cleanup) when the program exits
 
 \-\--
-
+## Check if card is in database
 ![](./imgs/iteration2/media/image5.png)
 
-It looks as if the script works even though the card is not in the
-database, fixed by checking if None is returned, if it is printing an
+It looks as if the script works even though the card is not in the database, fixed by checking if None is returned, if it is printing and
 Error and then exiting
 
 ![](./imgs/iteration2/media/image6.png)
 
 \-\--
-
+## Add card to db manually
 Now I added the RFID card to the DB manually, using the following SQL command
 
 `INSERT INTO rfid2.card_states (card_id, binary_value, timestamp) VALUES (770381256117, 0, \"2023-01-01 00:00:00\");`
 
 \-\--
-
+# Working code
 Imgs of working 2nd iteration (adding users manually )
 
 ![](./imgs/iteration2/media/image7.png)
