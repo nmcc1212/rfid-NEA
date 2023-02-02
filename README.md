@@ -11,9 +11,9 @@ user sign in program
 
 #3rd iteration 
 Easy user registration + names
-[3nd iteration.py] (/3nd iteration.py)
-[3nd iteration.py] (/3nd iteration.py)
+[3nd iteration.py] (/3rd iteration.py)
+[3nd iteration.py] (/3rd iteration.py)
 #4th iteration
 Add a Web UI
-[4nd iteration.py] (/4nd iteration.py)
-[4nd iteration.py] (/4nd iteration.py)
+[4nd iteration.py] (/4th iteration.py)
+[4nd iteration.py] (/4th iteration.py)
