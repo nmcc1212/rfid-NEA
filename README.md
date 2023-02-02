@@ -16,7 +16,7 @@ Easy user registration + names
 
 [3rd iteration.py](</3rd iteration.py>)
 
-[3rd iteration.py](</3rd iteration.py>)
+[3rd iteration.md](</3rd iteration.md>)
 
 ## 4th iteration
 Add a Web UI
