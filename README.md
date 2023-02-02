@@ -1,4 +1,4 @@
-#RFID System Attempt 2
+RFID System Attempt 2
 
 #1st iteration
 
