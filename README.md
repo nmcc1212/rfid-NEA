@@ -9,7 +9,7 @@ user sign in program
 [2nd iteration.py] (2nd iteration.py)
 [2nd iteration.md] (2nd iteration.md)
 
-#3th iteration 
+#3rd iteration 
 Easy user registration + names
 [3nd iteration.py] (3nd iteration.py)
 [3nd iteration.py] (3nd iteration.py)
