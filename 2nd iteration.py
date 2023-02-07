@@ -1,10 +1,10 @@
-import mysql.connector
-import RPi.GPIO as GPIO
-from datetime import datetime
-from mfrc522 import SimpleMFRC522
+import mysql.connector #used for reading and writing to the database
+import RPi.GPIO as GPIO #used for controlling the GPIO pins
+from datetime import datetime #used for getting the current date and time
+from mfrc522 import SimpleMFRC522 #used for reading the RFID card
 import atexit
 
-atexit.register(GPIO.cleanup)
+atexit.register(GPIO.cleanup) #clean up GPIO on exit
 
 # Connect to MySQL database
 def connect_to_database():
@@ -16,16 +16,16 @@ def connect_to_database():
     )
     return mydb
 
-# Set up RFID reader and read card ID
+# A function to Create RFID reader object and read card ID
 def read_card_id():
-    reader = SimpleMFRC522()
+    reader = SimpleMFRC522() #create an RFID reader object
     card = ""
     while True:
         card, text = reader.read()
         break
     return card
 
-# Retrieve current binary value from database
+# A function to retrieve current binary value from database
 def get_current_value(mydb, card):
     mycursor = mydb.cursor()
     sql = "SELECT binary_value FROM card_states WHERE card_id = %s"
@@ -38,7 +38,7 @@ def get_current_value(mydb, card):
         return None
 
 
-# Flip binary value
+# A function to flip binary value
 def flip_value(value):
     if value == 0:
         new_value = 1
@@ -46,13 +46,13 @@ def flip_value(value):
         new_value = 0
     return new_value
 
-# Get the current date and time
+# A function to get the current date and time
 def get_time_stamp():
     now = datetime.now()
     time_stamp = now.strftime("%Y-%m-%d %H:%M:%S")
     return time_stamp
 
-# Update database with new value and timestamp
+# A function to update database with new value and timestamp
 def update_database(mydb, card, new_value, time_stamp):
     mycursor = mydb.cursor()
     sql = "UPDATE card_states SET binary_value = %s, timestamp = %s WHERE card_id = %s"

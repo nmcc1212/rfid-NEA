@@ -1,10 +1,10 @@
-import mysql.connector
-import RPi.GPIO as GPIO
-from datetime import datetime
-from mfrc522 import SimpleMFRC522
-import atexit
+import mysql.connector #used for reading and writing to the database
+import RPi.GPIO as GPIO #used for controlling the GPIO pins
+from datetime import datetime #used for getting the current date and time
+from mfrc522 import SimpleMFRC522 #used for reading the RFID card
+import atexit #used for cleaning up GPIO on exit
 
-atexit.register(GPIO.cleanup)
+atexit.register(GPIO.cleanup) #clean up GPIO on exit
 
 # Connect to MySQL database
 def connect_to_database():
@@ -36,7 +36,7 @@ def get_current_value(mydb, card):
         return result[0]
     else:
         return None
-
+# Retrieve name from database
 def get_name(mydb, card):
     mycursor = mydb.cursor()
     sql = "SELECT name FROM card_states WHERE card_id = %s"
@@ -70,7 +70,7 @@ def update_database(mydb, card, new_value, time_stamp):
     val = (new_value, time_stamp, card)
     mycursor.execute(sql, val)
     mydb.commit()
-
+# Add new card to database
 def add_new_card(mydb, card):
     mycursor = mydb.cursor()
     name = input("Enter name: ")

@@ -2,7 +2,7 @@ from flask import Flask, render_template
 import mysql.connector
 
 app = Flask(__name__)
-
+# Connect to MySQL database
 def connect_to_database():
     mydb = mysql.connector.connect(
         host="localhost",
@@ -11,7 +11,7 @@ def connect_to_database():
         database="rfid2"
     )
     return mydb
-
+# A function to Create RFID reader object and read card ID
 def get_all_cards():
     mydb = connect_to_database()
     mycursor = mydb.cursor()
@@ -19,8 +19,8 @@ def get_all_cards():
     mycursor.execute(sql)
     result = mycursor.fetchall()
     cards = []
-    for card in result:
-        cards.append({
+    for card in result: #create a 
+        cards.append({ 
             'card_id': card[0],
             'binary_value': card[1],
             'timestamp': card[2],
@@ -30,8 +30,8 @@ def get_all_cards():
 
 @app.route('/')
 def index():
-    cards = get_all_cards()
-    return render_template('index.html', cards=cards)
+    cards = get_all_cards() #get all cards from database
+    return render_template('index.html', cards=cards) #pass cards to the web interface
 
 
-app.run(debug=True, host='0.0.0.0')
+app.run(debug=True, host='0.0.0.0') #run the web interface, binding to all interfaces
